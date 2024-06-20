@@ -1,0 +1,35 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block body_content %}
+<div class="container-fluid">
+    <div class="row" >
+  	<div class="col-2">
+      <!-- Left Sidebar Start -->
+      {% include 'admin_panel/partials/left_sidebar.html' %}
+      <!-- Right Sidebar End -->
+    </div>
+  	<div class="col-10 right-side-content">
+     <center>
+		   <h3 class="mt-5">{{ form.get_form_name }} Form</h3>
+		   <form method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form %}
+				<div class="form-group">
+					<div class="row">
+					<div class="col-sm-4">
+						<label for="exampleInputEmail1">{{ field.label }}</label>
+					</div>
+					<div class="col-sm-8">
+						{{ field }}
+						<small class="category-field-errors">{{ field.errors }}</small>
+					</div>
+					</div>
+				</div>
+			{% endfor %}
+			<button type="submit" class="btn btn-primary">Save</button>		
+		   </form><br /><br />
+	   </center>
+    </div>
+	</div>
+</div>
+{% endblock body_content %}

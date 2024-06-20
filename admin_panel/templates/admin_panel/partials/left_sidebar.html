@@ -1,0 +1,66 @@
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'index' %}">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <!-- End Dashboard Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed menu"
+        data-bs-target="#components-nav"
+        id="sidebar-nav" 
+        data-bs-toggle="collapse"
+        aria-expanded="false" aria-labelledby="headingThree"
+        href="#admins-1">
+        <i class="bi bi-menu-button-wide-fill"></i><span>Playlist</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="menu-1" class="nav-content collapse">
+        <li>
+          <a href="{% url 'artist_form' %}">
+            <i class="bi bi-circle d-none"></i><span>Artist Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'artist_list' %}">
+            <i class="bi bi-circle d-none"></i><span>Artist List</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'album_form' %}">
+            <i class="bi bi-circle d-none"></i><span>Album Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'album_list' %}">
+            <i class="bi bi-circle d-none"></i><span>Album List</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'track_form' %}">
+            <i class="bi bi-circle d-none"></i><span>Track Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'track_list' %}">
+            <i class="bi bi-circle d-none"></i><span>Track List</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'playlist_form' %}">
+            <i class="bi bi-circle d-none"></i><span>Playlist Form</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'playlist_list' %}">
+            <i class="bi bi-circle d-none"></i><span>Playlist List</span>
+          </a>
+        </li>
+      </ul>
+    </li><!-- End Components Nav -->
+
+  </ul>
+</aside>
+<!-- End Sidebar-->

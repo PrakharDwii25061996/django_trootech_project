@@ -1,0 +1,49 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block body_content %}
+<div class="container-fluid">
+	<div class="row" >
+	  	<div class="col-3">
+	      <!-- Left Sidebar Start -->
+	      {% include 'admin_panel/partials/left_sidebar.html' %}
+	      <!-- Right Sidebar End -->
+	    </div>
+	    <div class="col-9" style="margin-bottom: 400px;">
+	    	<center>
+	    	<div class="container-fluid">
+	    		<h3>Track List</h3>
+	    		<table class="table table-hover">
+				  <thead>
+				    <tr>
+				      <th scope="col">Title</th>
+				      <th scope="col">Album</th>
+				      <th scope="col">Order</th>
+				      <th scope="col">Duration(in min)</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	{% for track in track_list %}
+				    <tr id="status_{{ track.id }}">
+				      <td>{{ track.title }}</td>
+				      <td>{{ track.album }}</td>
+				      <td>{{ track.order }}</td>
+				      <td>{{ track.duration }}</td>
+				      <td>
+				      	<a href="{% url 'track_edit_form' track.id %}">
+				      		<i class="bi bi-pen"></i>
+				      	</a>
+				      </td>
+				      <td>
+				      	<a href="{% url 'track_delete' track.id %}" class="track-id">
+				      		<i class="bi bi-trash"></i>
+				      	</a>
+				      </td>
+				    </tr>
+				    {% endfor %}
+				  </tbody>
+				</table>
+	    	</div>
+	    	</center>
+	    </div>
+</div>
+{% endblock body_content %}

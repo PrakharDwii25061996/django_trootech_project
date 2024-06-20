@@ -1,0 +1,47 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block body_content %}
+<div class="container-fluid">
+	<div class="row" >
+	  	<div class="col-3">
+	      <!-- Left Sidebar Start -->
+	      {% include 'admin_panel/partials/left_sidebar.html' %}
+	      <!-- Right Sidebar End -->
+	    </div>
+	    <div class="col-9" style="margin-bottom: 400px;">
+	    	<center>
+	    	<div class="container-fluid">
+	    		<h3>Artist List</h3>
+	    		<table class="table table-hover">
+				  <thead>
+				    <tr>
+				      <th scope="col">Name</th>
+				      <th scope="col">Tracks</th>
+				      <th scope="col">Edit</th>
+				      <th scope="col">Delete</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	{% for play in playlist %}
+				    <tr id="status_{{ play.id }}">
+				      <td>{{ play.name }}</td>
+				      <td>{{ play.tracks }}</td>
+				      <td>
+				      	<a href="{% url 'playlist_edit_form' play.id %}">
+				      		<i class="bi bi-pen"></i>
+				      	</a>
+				      </td>
+				      <td>
+				      	<a href="{% url 'playlist_delete' play.id %}" class="play-id">
+				      		<i class="bi bi-trash"></i>
+				      	</a>
+				      </td>
+				    </tr>
+				    {% endfor %}
+				  </tbody>
+				</table>
+	    	</div>
+	    	</center>
+	    </div>
+</div>
+{% endblock body_content %}
