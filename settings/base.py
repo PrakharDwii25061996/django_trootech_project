@@ -12,13 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import environ
-
-
-env = environ.Env()
-
-environ.Env.read_env()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,12 +22,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -90,17 +80,6 @@ WSGI_APPLICATION = 'trootech_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DB_NAME'),      # Must be created in PostgreSQL first
-        'USER': env('DB_USER'),      # Database user role
-        'PASSWORD': env('DB_PASSWORD'), # User's password
-        'HOST': env('DB_HOST'),               # 'localhost' or remote database IP
-        'PORT': env('DB_PORT'),                    # Default PostgreSQL port
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -147,34 +126,3 @@ STATICFILES_DIRS = [STATIC_DIR]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
-
-SECURE_SSL_REDIRECT = env.bool(
-    "SECURE_SSL_REDIRECT",
-    default=False
-)
-
-SESSION_COOKIE_SECURE = env.bool(
-    "SESSION_COOKIE_SECURE",
-    default=False
-)
-
-CSRF_COOKIE_SECURE = env.bool(
-    "CSRF_COOKIE_SECURE",
-    default=False
-)
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
-
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
-
-if not DEBUG:
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-
-    SECURE_SSL_REDIRECT = True
-
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True

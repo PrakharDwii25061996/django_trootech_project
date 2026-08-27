@@ -1,8 +1,10 @@
 
 venv/
 .env
+.env_dev
 
 __pycache__/
 
 migrations/
 staticfiles/
+# settings.py

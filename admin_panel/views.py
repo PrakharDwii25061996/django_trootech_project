@@ -9,12 +9,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import FormView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, View, ListView, DetailView
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 
 def index(request):
 	return render(request, 'admin_panel/index.html', {})
 
 
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class ArtistFormView(FormView):
     template_name = "admin_panel/form_view.html"
     form_class = ArtistForm
@@ -48,6 +51,7 @@ class ArtistDeleteView(DeleteView):
         return redirect("artist_list")
 
 
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class AlbumFormView(FormView):
     template_name = "admin_panel/form_view.html"
     form_class = AlbumForm
@@ -81,6 +85,7 @@ class AlbumDeleteView(DeleteView):
         return redirect("album_list")
 
 
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class TrackFormView(FormView):
     template_name = "admin_panel/form_view.html"
     form_class = TrackForm
@@ -114,6 +119,7 @@ class TrackDeleteView(DeleteView):
         return redirect("track_list")
 
 
+@method_decorator(ensure_csrf_cookie, name='dispatch')
 class PlaylistFormView(FormView):
     template_name = "admin_panel/form_view.html"
     form_class = PlaylistForm
