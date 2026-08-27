@@ -19,20 +19,6 @@ DATABASES = {
     }
 }
 
-SECURE_SSL_REDIRECT = env.bool(
-    "SECURE_SSL_REDIRECT",
-    default=False
-)
-
-SESSION_COOKIE_SECURE = env.bool(
-    "SESSION_COOKIE_SECURE",
-    default=False
-)
-
-CSRF_COOKIE_SECURE = env.bool(
-    "CSRF_COOKIE_SECURE",
-    default=False
-)
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -40,12 +26,9 @@ CORS_ALLOWED_ORIGINS = [
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
-if not DEBUG:
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
-
-    SECURE_SSL_REDIRECT = True
-
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+SECURE_HSTS_SECONDS = env('SECURE_HSTS_SECONDS')
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=False)
+SECURE_HSTS_PRELOAD = env.bool('SECURE_HSTS_PRELOAD', default=False)
+SECURE_SSL_REDIRECT = env.bool('SECURE_SSL_REDIRECT', default=False)
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', default=False)
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', default=False)
