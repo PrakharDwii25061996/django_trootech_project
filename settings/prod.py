@@ -25,6 +25,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
+
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 SECURE_HSTS_SECONDS = env('SECURE_HSTS_SECONDS')
