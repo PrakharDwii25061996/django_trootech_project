@@ -10,6 +10,9 @@ class Playlist(models.Model):
     tracks = models.ForeignKey(
         Track, related_name='playlist_tracks', on_delete=models.CASCADE
     )
+    image = models.ImageField(upload_to='album/', blank=True,
+        null=True
+    )
 
     def __str__(self):
         return self.name

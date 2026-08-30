@@ -5,7 +5,11 @@ venv/
 
 __pycache__/
 
-migrations/
-staticfiles/
+# */migrations/
+# staticfiles/
 # settings.py
 /manage.py
+media/
+migrations/
+second-keypair.pem
+staticfiles/

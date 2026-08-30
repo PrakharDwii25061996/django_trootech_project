@@ -15,6 +15,8 @@
 	    		<table class="table table-hover">
 				  <thead>
 				    <tr>
+				      <th scope="col">S. No.</th>
+				      <th scope="col">Image</th>
 				      <th scope="col">Title</th>
 				      <th scope="col">Album</th>
 				      <th scope="col">Order</th>
@@ -24,6 +26,12 @@
 				  <tbody>
 				  	{% for track in track_list %}
 				    <tr id="status_{{ track.id }}">
+				      <td>{{ forloop.counter }}</td>
+				      <td>
+				      	{% if track.image %}
+				      	<img src="{{track.image.url}}" width="50" height="50">
+				      	{% endif %}
+				      </td>
 				      <td>{{ track.title }}</td>
 				      <td>{{ track.album }}</td>
 				      <td>{{ track.order }}</td>

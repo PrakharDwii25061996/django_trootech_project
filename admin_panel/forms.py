@@ -10,7 +10,10 @@ class ArtistForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             "name": forms.TextInput(attrs={"class": "form-control"}),
-            "biography": forms.Textarea(attrs={"class": "form-control"})
+            "biography": forms.Textarea(attrs={"class": "form-control"}),
+            "image": forms.ClearableFileInput(
+                attrs={"class": "form-control"}
+             ),
         }
 
     def get_form_name(self):
@@ -25,7 +28,10 @@ class AlbumForm(forms.ModelForm):
         widgets = {
             "title": forms.TextInput(attrs={"class": "form-control"}),
             "artist": forms.Select(attrs={"class": "form-control"}),
-            "release_date": forms.SelectDateWidget(attrs={"class": "form-control"})
+            "release_date": forms.SelectDateWidget(attrs={"class": "form-control"}),
+            "image": forms.ClearableFileInput(
+                attrs={"class": "form-control"}
+             ),
         }
 
     def get_form_name(self):
@@ -43,7 +49,10 @@ class TrackForm(forms.ModelForm):
             "order": forms.NumberInput(attrs={"class": "form-control"}),
             "duration": forms.TextInput(
                 attrs={"class": "form-control"}
-            )
+            ),
+            "image": forms.ClearableFileInput(
+                attrs={"class": "form-control"}
+             ),
         }
 
     def get_form_name(self):
