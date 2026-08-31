@@ -13,3 +13,4 @@ media/
 migrations/
 second-keypair.pem
 staticfiles/
+cacert.pem

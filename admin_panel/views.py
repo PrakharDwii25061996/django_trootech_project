@@ -25,6 +25,7 @@ class ArtistFormView(FormView):
 
     def form_valid(self, form):
         form.save()
+        form.sent_email()
         return super().form_valid(form)
 
 

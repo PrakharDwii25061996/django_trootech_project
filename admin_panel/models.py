@@ -3,6 +3,7 @@ from django.db import models
 
 class Artist(models.Model):
     name = models.CharField(max_length=100)
+    email = models.EmailField(null=True)
     biography = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True,
         null=True
