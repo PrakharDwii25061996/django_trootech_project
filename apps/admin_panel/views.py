@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 from .models import Artist, Album, Track
 from .forms import ArtistForm, AlbumForm, TrackForm, PlaylistForm
-from playlist.models import Playlist
+from apps.playlist.models import Playlist
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import FormView, UpdateView, DeleteView

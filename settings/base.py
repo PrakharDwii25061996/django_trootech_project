@@ -31,8 +31,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 INSTALLED_APPS = [
     # Custom Application
-    'playlist',
-    'admin_panel',
+    'apps.playlist',
+    'apps.admin_panel',
 
     'django.contrib.admin',
     'django.contrib.auth',

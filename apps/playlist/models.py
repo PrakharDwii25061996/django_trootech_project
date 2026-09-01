@@ -1,7 +1,7 @@
 from django.db import models
 import uuid
 
-from admin_panel.models import Track
+from apps.admin_panel.models import Track
 
 
 class Playlist(models.Model):
